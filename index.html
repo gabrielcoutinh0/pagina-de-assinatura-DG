@@ -18,17 +18,18 @@
       <div class="fadeBottom"></div>
     </header>
     <main>
-      <div class="btn-principal"><a href="#">Economizzando</a></div>
-      <div class="btn-principal"><a href="#">Botão para coisa importante 1</a></div>
+      <div class="content" id="content">
 
-      <div class="group-whatsapp">
+      </div>
+
+      <!-- <div class="group-whatsapp">
         <a id="hideWpp" href="#hideWpp" class="hide">+ Grupos do Whatsapp</a>
         <a id="showWpp" href="#showWpp" class="show">- Grupos do Whatsapp</a>
         <div class="details">
-          <div class="group"><a href="1">Grupo 1</a></div>
-          <div class="group"><a href="2">Grupo 2</a></div>
-          <div class="group"><a href="3">Grupo 3</a></div>
-          <div class="group"><a href="4">Grupo 4</a></div>
+          <div class="group"><a href="1" target="_blank">Grupo 1</a></div>
+          <div class="group"><a href="2" target="_blank">Grupo 2</a></div>
+          <div class="group"><a href="3" target="_blank">Grupo 3</a></div>
+          <div class="group"><a href="4" target="_blank">Grupo 4</a></div>
         </div>
       </div>
       <hr>
@@ -37,35 +38,27 @@
         <a id="hideTelegram" href="#hideTelegram" class="hide">+ Grupos do Telegram</a>
         <a id="showTelegram" href="#showTelegram" class="show">- Grupos do Telegram</a>
         <div class="details">
-          <div class="group"><a href="1">Grupo 1</a></div>
+          <div class="group"><a href="1" target="_blank">Grupo 1</a></div>
         </div>
-      </div>
+      </div> -->
       <hr>
 
       <h1 class="rede-social-title">Siga-nos nas<br>Redes Sociais</h1>
       <p class="rede-social-description">Fique por dentro de todas as ofertas<br>e muito mais</p>
 
       <div class="rede-social">
-        <div class="facebook">
-          <a href="https://pt-br.facebook.com/descontoemgames">
+          <a href="https://pt-br.facebook.com/descontoemgames" class="facebook" target="_blank">
             <i class="fab fa-facebook-f"></i>
           </a>
-        </div>
-        <div class="twitter">
-          <a href="https://twitter.com/DescontoemGames">
+          <a href="https://twitter.com/DescontoemGames" class="twitter" target="_blank">
             <i class="fab fa-twitter"></i>
           </a>
-        </div>
-        <div class="twitch">
-          <a href="https://www.twitch.tv/descontoemgames">
+          <a href="https://www.twitch.tv/republicadg" class="twitch" target="_blank">
             <i class="fab fa-twitch"></i>
           </a>
-        </div>
-        <div class="instagram">
-          <a href="https://www.instagram.com/descontoemgames">
+          <a href="https://www.instagram.com/descontoemgames" class="instagram" target="_blank">
             <i class="fab fa-instagram"></i>
           </a>
-        </div>
       </div>
     </main>
   </div>
@@ -73,5 +66,27 @@
     <hr>
     Copyright 2021 © Todos os direitos reservados a Desconto em Games.
   </footer>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.slim.min.js" integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI=" crossorigin="anonymous"></script>
+  <script>
+
+    (async () => {
+      await fetch('https://pudim2.economizzando.com.br/app/api/landingpages/links/1/', {
+        method: 'GET'
+      }).then(function(response) {
+        return response.json();
+      }).then(function(data){
+        
+        data.map(link => {
+          $("#content").append(`
+            <div class="btn-principal"><a href="${link.url}" target="_blank">${link.descricao}</a></div>
+          `)
+        })
+
+      }).catch(function(err) {
+        console.log("Erro ao conectar com a API");
+      })
+    })();
+  </script>
 </body>
 </html>
