@@ -78,69 +78,42 @@ main{
   margin-top: 3rem;
 }
 
-.btn-principal{
+.group{
   text-align: center;
   background-color: #F7AB29;
-  color: #47276c;
   border: none;
   max-width: 22.8125rem;
   width: 100%;
   border-radius: 50px;
-  margin: 0 2rem .75rem 2rem;
+  margin: .75rem 1rem .75rem 1rem;
   font-size: 1.125rem;
   padding: 1.125rem 0.5rem;
   cursor: pointer;
 }
 
-.btn-principal a{
-  text-decoration: none;
-  font-weight: 700;
-  color: #47276c;
-}
-
-.btn-principal:hover{
+.group:hover{
   background-color: #FFBD4D;
-}
-
-.group-whatsapp{
-  margin-top: 1.875rem;
-  font-size: 1.125rem;
-  text-transform: uppercase;
-}
-
-.group{
-  margin: 0.75rem 0 0 1.5rem;
-  color: #808080;
 }
 
 .group a{
   text-decoration: none;
-  color: #808080;
+  color: #47276c;
+  font-weight: bold;
 }
 
-#hideWpp, #showWpp{
+#description{
   color: white;
   text-decoration: none;
+  margin-left: .75rem;
 }
 
-.group-telegram{
+.group-acheiEstoque, .group-descontoGames{
   font-size: 1.125rem;
   text-transform: uppercase;
 }
 
-
-#hideTelegram, #showTelegram{
-  color: white;
-  text-decoration: none;
-}
-
-.details, .show, .hide:target{
-  display: none;
-}
-
-.hide:target + .show,
-.hide:target ~ .details {
-  display: block;
+.group-descontoGames{
+  margin-top: 1.875rem;
 }
 
 hr{

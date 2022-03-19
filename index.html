@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -20,45 +20,33 @@
     <main>
       <div class="content" id="content">
 
-      </div>
-
-      <!-- <div class="group-whatsapp">
-        <a id="hideWpp" href="#hideWpp" class="hide">+ Grupos do Whatsapp</a>
-        <a id="showWpp" href="#showWpp" class="show">- Grupos do Whatsapp</a>
-        <div class="details">
-          <div class="group"><a href="1" target="_blank">Grupo 1</a></div>
-          <div class="group"><a href="2" target="_blank">Grupo 2</a></div>
-          <div class="group"><a href="3" target="_blank">Grupo 3</a></div>
-          <div class="group"><a href="4" target="_blank">Grupo 4</a></div>
+        <div class="group-descontoGames">
+          <p id="description">Grupos Desconto em Games</p>
         </div>
-      </div>
-      <hr>
+        <hr>
 
-      <div class="group-telegram">
-        <a id="hideTelegram" href="#hideTelegram" class="hide">+ Grupos do Telegram</a>
-        <a id="showTelegram" href="#showTelegram" class="show">- Grupos do Telegram</a>
-        <div class="details">
-          <div class="group"><a href="1" target="_blank">Grupo 1</a></div>
+      <div class="group-acheiEstoque">
+          <p id="description">Grupos Achei estoque</p>
         </div>
-      </div> -->
-      <hr>
+        <hr>
 
-      <h1 class="rede-social-title">Siga-nos nas<br>Redes Sociais</h1>
-      <p class="rede-social-description">Fique por dentro de todas as ofertas<br>e muito mais</p>
+        <h1 class="rede-social-title">Siga-nos nas<br>Redes Sociais</h1>
+        <p class="rede-social-description">Fique por dentro de todas as ofertas<br>e muito mais</p>
 
-      <div class="rede-social">
-          <a href="https://pt-br.facebook.com/descontoemgames" class="facebook" target="_blank">
-            <i class="fab fa-facebook-f"></i>
-          </a>
-          <a href="https://twitter.com/DescontoemGames" class="twitter" target="_blank">
-            <i class="fab fa-twitter"></i>
-          </a>
-          <a href="https://www.twitch.tv/republicadg" class="twitch" target="_blank">
-            <i class="fab fa-twitch"></i>
-          </a>
-          <a href="https://www.instagram.com/descontoemgames" class="instagram" target="_blank">
-            <i class="fab fa-instagram"></i>
-          </a>
+        <div class="rede-social">
+            <a href="https://pt-br.facebook.com/descontoemgames" class="facebook" target="_blank">
+              <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="https://twitter.com/DescontoemGames" class="twitter" target="_blank">
+              <i class="fab fa-twitter"></i>
+            </a>
+            <a href="https://www.twitch.tv/republicadg" class="twitch" target="_blank">
+              <i class="fab fa-twitch"></i>
+            </a>
+            <a href="https://www.instagram.com/descontoemgames" class="instagram" target="_blank">
+              <i class="fab fa-instagram"></i>
+            </a>
+        </div>
       </div>
     </main>
   </div>
@@ -76,11 +64,16 @@
       }).then(function(response) {
         return response.json();
       }).then(function(data){
-        
-        data.map(link => {
-          $("#content").append(`
-            <div class="btn-principal"><a href="${link.url}" target="_blank">${link.descricao}</a></div>
+        data.filter(link => {
+          if(link.grupo === "Desconto em Games"){
+            $(".group-descontoGames").append(`
+            <div class="group"><a href="${link.url}" target="_blank">${link.descricao}</a></div>
           `)
+          }else{
+            $(".group-acheiEstoque").append(`
+            <div class="group"><a href="${link.url}" target="_blank">${link.descricao}</a></div>
+          `)
+          }
         })
 
       }).catch(function(err) {
